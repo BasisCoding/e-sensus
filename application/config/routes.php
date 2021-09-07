@@ -55,3 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'Auth';
 $route['logout'] = 'Auth/logout';
+
+$route['ScanQR/(:any)'] = 'ScanQRCode/ScanData/$1';

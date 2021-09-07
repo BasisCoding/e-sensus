@@ -1,15 +1,65 @@
-<section class="content">
+ <section class="content">
   <div class="container-fluid">
-    <div class="block-header float-left">
-      <h2 class="">DATA PENDUDUK</h2>
-      <div class="m-t-10">
-        <button type="button" class="btn btn-default waves-effect col-lg-3 col-xs-12" data-toggle="modal" data-target="#modal-addPenduduk">Tambah Penduduk</button>
+    <!-- Exportable Table -->
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header">
+            <h2>
+              DATA PENDUDUK
+            </h2>
+            <ul class="header-dropdown">
+              <li class="dropdown">
+                <button type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#modal-addPenduduk">Tambah</button>
+              </li>
+            </ul>
+          </div>
+          <div class="body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover" id="table-penduduk">
+                <thead>
+                  <tr>
+                    <th>NIK</th>
+                    <th>NO KK</th>
+                    <th>NAMA LENGKAP</th>
+                    <th>TEMPAT LAHIR</th>
+                    <th>TANGGAL LAHIR</th>
+                    <th>JENIS KELAMIN</th>
+                    <th>KABUPATEN</th>
+                    <th>KECAMATAN</th>
+                    <th>DESA</th>
+                    <th>RT/RW</th>
+                    <th>ALAMAT</th>
+                    <th>STATUS</th>
+                    <th>AKSI</th>
+                  </tr>
+                </thead>
+                <!-- <tfoot>
+                  <tr>
+                    <th>NIK</th>
+                    <th>NO KK</th>
+                    <th>NAMA LENGKAP</th>
+                    <th>TEMPAT LAHIR</th>
+                    <th>TANGGAL LAHIR</th>
+                    <th>JENIS KELAMIN</th>
+                    <th>KABUPATEN</th>
+                    <th>KECAMATAN</th>
+                    <th>DESA</th>
+                    <th>RT/RW</th>
+                    <th>ALAMAT</th>
+                    <th>STATUS</th>
+                  </tr>
+                </tfoot> -->
+                <tbody id="view-penduduk">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Basic Example -->
-  <div class="d-flex m-t-10" id="view-penduduk">
-
+    <!-- #END# Exportable Table -->
   </div>
 </section>
 
@@ -57,11 +107,75 @@
           </div>
 
           <div class="form-group">
+            <label>JENIS KELAMIN</label>
+            <div class="form-line">
+              <select name="jenis_kelamin" class="form-control">
+                <option value="Laki-laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>KABUPATEN</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="kab" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>KECAMATAN</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="kec" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>DESA</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="desa" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label>RT / RW</label>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-line">
+                  <input type="text" class="form-control" placeholder="RT" name="rt" required="" aria-required="true" aria-invalid="false">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-line">
+                  <input type="text" class="form-control" placeholder="RW" name="rw" required="" aria-required="true" aria-invalid="false">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
             <label>ALAMAT</label>
             <div class="form-line">
               <textarea class="form-control no-resize" cols="10" rows="5" name="alamat"></textarea>
             </div>
           </div>
+
+          <div class="form-group">
+            <label>STATUS</label>
+            <div class="form-line">
+              <select name="status" class="form-control">
+                <option value="1">Aktif</option>
+                <option value="2">Meninggal</option>
+                <option value="3">Pindah</option>
+                <option value="4">Ganda</option>
+              </select>
+            </div>
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">
@@ -82,12 +196,11 @@
         <form id="form-deletePenduduk" class="form_advanced_validation" method="POST">
          <input type="hidden" name="id_delete">
          <p>Anda Yakin Ingin Menghapus Data <span id="nama_lengkap_delete"></span></p>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" form="form-deletePenduduk" class="btn waves-effect btn-danger">Hapus</button>
-        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
-      </div>
+       </form>
+     </div>
+     <div class="modal-footer">
+      <button type="submit" form="form-deletePenduduk" class="btn waves-effect btn-danger">Hapus</button>
+      <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
     </div>
   </div>
 </div>
@@ -137,11 +250,74 @@
           </div>
 
           <div class="form-group">
+            <label>JENIS KELAMIN</label>
+            <div class="form-line">
+              <select name="jenis_kelamin_update" class="form-control">
+                <option value="Laki-laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>KABUPATEN</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="kab_update" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>KECAMATAN</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="kec_update" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>DESA</label>
+            <div class="form-line">
+              <input type="text" class="form-control" name="desa_update" required="" aria-required="true" aria-invalid="false">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label>RT / RW</label>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-line">
+                  <input type="text" class="form-control" placeholder="RT" name="rt_update" required="" aria-required="true" aria-invalid="false">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-line">
+                  <input type="text" class="form-control" placeholder="RW" name="rw_update" required="" aria-required="true" aria-invalid="false">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
             <label>ALAMAT</label>
             <div class="form-line">
               <textarea class="form-control no-resize" cols="10" rows="5" name="alamat_update"></textarea>
             </div>
           </div>
+
+          <div class="form-group">
+            <label>STATUS</label>
+            <div class="form-line">
+              <select name="status_update" class="form-control">
+                <option value="1">Aktif</option>
+                <option value="2">Meninggal</option>
+                <option value="3">Pindah</option>
+                <option value="4">Ganda</option>
+              </select>
+            </div>
+          </div>
+
         </form>
       </div>
       <div class="modal-footer">

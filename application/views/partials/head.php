@@ -25,6 +25,12 @@
     <!-- Morris Chart Css-->
     <link href="<?= site_url('assets/plugins/morrisjs/morris.css') ?>" rel="stylesheet" />
 
+    <!-- Bootstrap Select -->
+    <link href="<?= site_url('assets/plugins/bootstrap-select/css/bootstrap-select.css') ?>" rel="stylesheet">
+
+    <!-- JQuery DataTable Css -->
+    <link href="<?= site_url('assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') ?>" rel="stylesheet">
+    
     <!-- Custom Css -->
     <link href="<?= site_url('assets/css/style.css') ?>" rel="stylesheet">
     <!-- <link href="<?= site_url('assets/plugins/waitme/waitMe.css') ?>" rel="stylesheet"> -->

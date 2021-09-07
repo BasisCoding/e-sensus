@@ -4,22 +4,22 @@
 
 		getAll();
 
-		$('#table-penduduk').DataTable({
+		$('#table-petugas').DataTable({
 			dom: 'Bfrtip',
 			responsive: true,
 			buttons: [
 			'copy', 'csv', 'excel', 'pdf', 'print'
 			]
 		});
-		
+
 		function getAll() {
 			$.ajax({
-				url: '<?= base_url('DataPenduduk/getPenduduk') ?>',
+				url: '<?= base_url('DataPetugas/getPetugas') ?>',
 				type: 'POST',
 				async:false,
 				dataType: 'HTML',
 				success:function (data) {
-					$('#view-penduduk').html(data);
+					$('#view-petugas').html(data);
 				}
 			});
 
@@ -28,7 +28,7 @@
 
 		function actionData(formData, nameAction) {
 			$.ajax({
-				url: '<?= base_url("DataPenduduk/") ?>'+nameAction+'',
+				url: '<?= base_url("DataPetugas/") ?>'+nameAction+'',
 				type: 'POST',
 				dataType: 'JSON',
 				data: formData,
@@ -46,9 +46,9 @@
 			});
 		}
 
-		$('#form-addPenduduk').submit(function() {
+		$('#form-addPetugas').submit(function() {
 			var formData = new FormData(this);
-			actionData(formData, 'addPenduduk');
+			actionData(formData, 'addPetugas');
 			
 			setTimeout(function() {
 				getAll();
@@ -57,9 +57,9 @@
 			return false;
 		});
 
-		$('#form-updatePenduduk').submit(function() {
+		$('#form-updatePetugas').submit(function() {
 			var formData = new FormData(this);
-			actionData(formData, 'updatePenduduk');
+			actionData(formData, 'updatePetugas');
 			
 			setTimeout(function() {
 				getAll();
@@ -68,9 +68,9 @@
 			return false;
 		});
 
-		$('#form-deletePenduduk').submit(function() {
+		$('#form-deletePetugas').submit(function() {
 			var formData = new FormData(this);
-			actionData(formData, 'deletePenduduk');
+			actionData(formData, 'deletePetugas');
 			
 			setTimeout(function() {
 				getAll();
@@ -95,15 +95,6 @@
 					$('[name="nama_lengkap_update"]').val(data.nama_lengkap);
 					$('[name="tempat_lahir_update"]').val(data.tempat_lahir);
 					$('[name="tanggal_lahir_update"]').val(data.tanggal_lahir);
-					$('[name="jenis_kelamin_update"]').val(data.jenis_kelamin);
-
-					$('[name="kab_update"]').val(data.kab);
-					$('[name="kec_update"]').val(data.kec);
-					$('[name="desa_update"]').val(data.desa);
-					$('[name="rt_update"]').val(data.rt);
-					$('[name="rw_update"]').val(data.rw);
-					$('[name="status_update"]').val(data.status);
-
 					$('[name="alamat_update"]').val(data.alamat);
 					$('#modal-updatePenduduk').modal('show');
 				}
@@ -145,6 +136,6 @@
 
 <script src="<?= site_url('assets/plugins/jquery-validation/jquery.validate.js') ?>"></script>
 <script src="<?= site_url('assets/js/pages/forms/form-validation.js') ?>"></script>
-
+<script src="<?= site_url('assets/js/pages/tables/jquery-datatable.js') ?>"></script>
 </body>
 </html>
