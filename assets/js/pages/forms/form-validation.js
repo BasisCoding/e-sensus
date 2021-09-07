@@ -1,5 +1,5 @@
 $(function () {
-    $('#form_validation').validate({
+    $('.form_validation').validate({
         rules: {
             'checkbox': {
                 required: true
@@ -20,13 +20,19 @@ $(function () {
     });
 
     //Advanced Form Validation
-    $('#form_advanced_validation').validate({
+    $('.form_advanced_validation').validate({
         rules: {
             'date': {
                 customdate: true
             },
             'creditcard': {
                 creditcard: true
+            },
+            'nik': {
+                nik: true
+            },
+            'no_kk': {
+                no_kk: true
             }
         },
         highlight: function (input) {
@@ -54,5 +60,20 @@ $(function () {
     },
         'Please enter a credit card in the format XXXX-XXXX-XXXX-XXXX.'
     );
+    //==================================================================================================
+
+    // NIK dan NO KK
+    $.validator.addMethod('nik', function (value, element) {
+        return value.match(/^\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d$/);
+    },
+        'Mohon masukan NIK dengan benar XXXXXXXXXXXXXXXX.'
+    );
+    
+    $.validator.addMethod('no_kk', function (value, element) {
+        return value.match(/^\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d$/);
+    },
+        'Mohon masukan NO KK dengan benar XXXXXXXXXXXXXXXX.'
+    );
+
     //==================================================================================================
 });
