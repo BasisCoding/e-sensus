@@ -8,6 +8,11 @@ class ScanQRCode extends CI_Controller {
 		parent::__construct();
 		$this->load->model('PendudukModel');
 	}
+
+	public function cameraQR()
+	{
+		$this->load->view('camera');
+	}
 	
 	public function ScanData()
 	{

@@ -13,7 +13,15 @@ class DataPenduduk extends CI_Controller {
 		$this->load->model('PendudukModel');
 	}
 
-	public function generate_qrcode()
+	public function qrcode()
+	{
+		$no_kk = ['3604042009876532', '3604042009236523'];
+		foreach ($no_kk as $kk => $value) {
+			$this->generate_qrcode($no_kk[$kk]);
+		}
+	}
+
+	public function generate_qrcode($no_kk)
 	{
 		$this->load->library('ciqrcode'); //pemanggilan library QR CODE
  
@@ -27,9 +35,9 @@ class DataPenduduk extends CI_Controller {
         $config['white']        = array(70,130,180); // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
  
-        $image_name= '3604042009876532.png'; //buat name dari qr code sesuai dengan nim
+        $image_name= $no_kk.'.png'; //buat name dari qr code sesuai dengan nim
  
-        $params['data'] = base_url('ScanQRCode/3604042009876532'); //data yang akan di jadikan QR CODE
+        $params['data'] = base_url('ScanQR/'.$no_kk); //data yang akan di jadikan QR CODE
         $params['level'] = 'H'; //H=High
         $params['size'] = 10;
         $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/

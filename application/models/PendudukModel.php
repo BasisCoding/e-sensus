@@ -32,6 +32,7 @@ class PendudukModel extends CI_Model {
 						'alamat' => $_POST['alamat'][$key],
 						'status' => $_POST['status'][$key],
 						'status_keluarga' => $_POST['status_keluarga'][$key],
+						'id_petugas' => $this->session->userdata('id'),
     				);
     			}
 
@@ -60,6 +61,14 @@ class PendudukModel extends CI_Model {
 	function deletePenduduk($id)
 	{
 		return $this->db->delete('penduduk_lokal', array('id' => $id));
+	}
+
+	function getAllKeluarga()
+	{
+		$this->db->select('*');
+		$this->db->like('status_keluarga', 'Kepala Keluarga', 'BOTH');
+		$this->db->group_by('no_kk');
+		return $this->db->get('penduduk_lokal');
 	}
 	
 	
