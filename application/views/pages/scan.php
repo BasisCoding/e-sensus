@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <title>Sign In | <?= APP_NAME ?></title>
+  <title>Verifikasi | <?= APP_NAME ?></title>
   <!-- Favicon-->
   <link rel="icon" href="<?= site_url('assets/favicon.ico') ?>" type="image/x-icon">
 
@@ -33,7 +33,7 @@
     <div class="logo text-center">
       <img width="150" height="150" src="<?= site_url('assets/images/logo.png') ?>">
     </div>
-    <form id="sendDataToLokal">
+    <form id="sendDataToLokal" class="form_advanced_validation">
       <div class="panel-group" role="tablist" aria-multiselectable="true" id="view-data">
       </div>
       <button type="submit" class="btn btn-success col-md-12 col-xs-12">Kirim Data Ke Lokal</button>
@@ -88,7 +88,6 @@
   <!-- Custom Js -->
   <script src="<?= site_url('assets/js/admin.js') ?> "></script>
   <script src="<?= site_url('assets/js/pages/ui/notifications.js') ?>"></script>
-  <script src="<?= site_url('assets/js/pages/examples/sign-in.js') ?> "></script>
 
   <script type="text/javascript">
 

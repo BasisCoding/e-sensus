@@ -49,35 +49,105 @@ class ScanQRCode extends CI_Controller {
                                 </h4>
                             </div>
                             <div id="collapse'.$gt->nik.'"" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading'.$gt->nik.'">
+                            	<input type="hidden" name="id[]"  value="'.$gt->id.'">
                                 <div class="panel-body">
-                                    <ul class="list-group">
-						                <li class="list-group-item">Nama Lengkap : '.$gt->nama_lengkap.'</li>
-						                <li class="list-group-item">TTL : '.$gt->tempat_lahir.', '.date('d-M-Y', strtotime($gt->tanggal_lahir)).'</li>
-						                <li class="list-group-item">Status Keluarga : '.$gt->status_keluarga.'</li>
-						                <li class="list-group-item">Tanggal Lahir : '.$gt->tanggal_lahir.'</li>
-						                <li class="list-group-item">Jenis Kelamin : '.$gt->jenis_kelamin.'</li>
-						                <li class="list-group-item">Kabupaten : '.$gt->kab.'</li>
-						                <li class="list-group-item">Kecamatan : '.$gt->kec.'</li>
-						                <li class="list-group-item">Desa : '.$gt->desa.'</li>
-						                <li class="list-group-item">RT/RW : '.$gt->rt.'/'.$gt->rw.'</li>
-						                <li class="list-group-item">Alamat : <p>'.$gt->alamat.'</p></li>
-						                <li class="list-group-item">Status : '.$status.'</li>
-						            </ul>
-      								<input type="hidden" name="id[]" value="'.$gt->id.'">
-      								<input type="hidden" name="nik[]" value="'.$gt->nik.'">
-      								<input type="hidden" name="no_kk[]" value="'.$gt->no_kk.'">
-      								<input type="hidden" name="nama_lengkap[]" value="'.$gt->nama_lengkap.'">
-      								<input type="hidden" name="tempat_lahir[]" value="'.$gt->tempat_lahir.'">
-      								<input type="hidden" name="tanggal_lahir[]" value="'.$gt->tanggal_lahir.'">
-      								<input type="hidden" name="jenis_kelamin[]" value="'.$gt->jenis_kelamin.'">
-      								<input type="hidden" name="kab[]" value="'.$gt->kab.'">
-      								<input type="hidden" name="kec[]" value="'.$gt->kec.'">
-      								<input type="hidden" name="desa[]" value="'.$gt->desa.'">
-      								<input type="hidden" name="rt[]" value="'.$gt->rt.'">
-      								<input type="hidden" name="rw[]" value="'.$gt->rw.'">
-      								<input type="hidden" name="alamat[]" value="'.$gt->alamat.'">
-      								<input type="hidden" name="status[]" value="'.$gt->status.'">
-      								<input type="hidden" name="status_keluarga[]" value="'.$gt->status_keluarga.'">
+                                	<div class="form-group">
+                                		<label>No KK</label>
+                                		<div class="form-line">
+                                			<input type="text" name="no_kk[]" class="form-control" value="'.$gt->no_kk.'" aria-required="true" aria-invalid="false">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>NIK</label>
+                                		<div class="form-line">
+                                			<input type="text" name="nik[]" class="form-control" value="'.$gt->nik.'" aria-required="true" aria-invalid="false">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Nama Lengkap</label>
+                                		<div class="form-line">
+                                			<input type="text" name="nama_lengkap[]" class="form-control" value="'.$gt->nama_lengkap.'" aria-required="true" aria-invalid="false">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Tempat Lahir</label>
+                                		<div class="form-line">
+                                			<input type="text" name="tempat_lahir[]" class="form-control" value="'.$gt->tempat_lahir.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Tanggal Lahir</label>
+                                		<div class="form-line">
+                                			<input type="date" name="tanggal_lahir[]" class="form-control" value="'.$gt->tanggal_lahir.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Nama Lengkap</label>
+                                		<div class="form-line">
+                                			<select class="form-control" name="jenis_kelamin[]" value="'.$gt->jenis_kelamin.'">
+	                                			<option value="Laki-Laki">Laki-Laki</option>
+	                                			<option value="Perempuan">Perempuan</option>
+	                                		</select>
+	                                	</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Kabupaten</label>
+                                		<div class="form-line">
+                                			<input type="text" name="kab[]" class="form-control" value="'.$gt->kab.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Kecamatan</label>
+                                		<div class="form-line">
+                                			<input type="text" name="kec[]" class="form-control" value="'.$gt->kec.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Desa</label>
+                                		<div class="form-line">
+                                			<input type="text" name="desa[]" class="form-control" value="'.$gt->desa.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>RT</label>
+                                		<div class="form-line">
+                                			<input type="text" name="rt[]" class="form-control" value="'.$gt->rt.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>RW</label>
+                                		<div class="form-line">
+                                			<input type="text" name="rw[]" class="form-control" value="'.$gt->rw.'">
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Alamat</label>
+                                		<div class="form-line">
+                                			<textarea class="form-control" name="alamat[]">'.$gt->alamat.'</textarea>
+                                		</div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Status</label>
+                                		<div class="form-line">
+							              <select name="status[]" class="form-control" value="'.$gt->status.'">
+							                <option value="1">Aktif</option>
+							                <option value="2">Meninggal</option>
+							                <option value="3">Pindah</option>
+							                <option value="4">Ganda</option>
+							              </select>
+							            </div>
+                                	</div>
+                                	<div class="form-group">
+                                		<label>Status Keluarga</label>
+                                		<div class="form-line">
+							              <select name="status_keluarga[]" class="form-control" value="'.$gt->status_keluarga.'">
+							                <option value="Kepala Keluarga">Kepala Keluarga</option>
+							                <option value="Istri">Istri</option>
+							                <option value="Anak">Anak</option>
+							              </select>
+							            </div>
+                                	</div>
+                                    
                                 </div>
                             </div>
                         </div>';

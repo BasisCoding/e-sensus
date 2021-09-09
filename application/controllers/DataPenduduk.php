@@ -15,7 +15,7 @@ class DataPenduduk extends CI_Controller {
 
 	public function qrcode()
 	{
-		$no_kk = ['3604042009876532', '3604042009236523'];
+		$no_kk = ['3604023009876532', '3604042009236523'];
 		foreach ($no_kk as $kk => $value) {
 			$this->generate_qrcode($no_kk[$kk]);
 		}

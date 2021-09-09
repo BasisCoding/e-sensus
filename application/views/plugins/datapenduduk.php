@@ -105,10 +105,12 @@
 					$('[name="status_update"]').val(data.status);
 
 					$('[name="alamat_update"]').val(data.alamat);
+					setTimeout(function() {
+						
 					$('#modal-updatePenduduk').modal('show');
+					}, 100);
 				}
 			});
-
 
 		});
 

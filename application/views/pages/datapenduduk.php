@@ -194,13 +194,14 @@
       </div>
       <div class="modal-body">
         <form id="form-deletePenduduk" class="form_advanced_validation" method="POST">
-         <input type="hidden" name="id_delete">
-         <p>Anda Yakin Ingin Menghapus Data <span id="nama_lengkap_delete"></span></p>
-       </form>
-     </div>
-     <div class="modal-footer">
-      <button type="submit" form="form-deletePenduduk" class="btn waves-effect btn-danger">Hapus</button>
-      <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
+           <input type="hidden" name="id_delete">
+           <p>Anda Yakin Ingin Menghapus Data <span id="nama_lengkap_delete"></span></p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="form-deletePenduduk" class="btn waves-effect btn-danger">Hapus</button>
+        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
